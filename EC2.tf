@@ -9,8 +9,18 @@ resource "aws_security_group" "demoSG" {
     description = "Allow nginx"
     from_port   = 0
     to_port     = 80
-    protocol    = "tcp"
+    protocol    = "TCP"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    name = "allow_ssh"
+    description = "allow ssh"
+    from_port = 0
+    to_port = 22
+    protocol = "TCP"
+    cidr_blocks = ["0.0.0.0/0"]
+
   }
 
   egress {
