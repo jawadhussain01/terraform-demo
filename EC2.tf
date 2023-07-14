@@ -14,7 +14,6 @@ resource "aws_security_group" "demoSG" {
   }
 
   ingress {
-    name        = "allow_ssh"
     description = "allow ssh"
     from_port   = 0
     to_port     = 22
