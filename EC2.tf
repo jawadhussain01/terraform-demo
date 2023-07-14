@@ -37,7 +37,7 @@ resource "aws_security_group" "demoSG" {
 resource "aws_instance" "demoEC2" {
   ami                    = "ami-06ca3ca175f37dd66"
   instance_type          = "t2.micro"
-  aws_key                = "terraform-windows-key"
+  key_name               = "terraform-windows-key"
   vpc_security_group_ids = [aws_security_group.demoSG.id]
   provisioner "remote-exec" {
     connection {
