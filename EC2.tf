@@ -14,11 +14,11 @@ resource "aws_security_group" "demoSG" {
   }
 
   ingress {
-    name = "allow_ssh"
+    name        = "allow_ssh"
     description = "allow ssh"
-    from_port = 0
-    to_port = 22
-    protocol = "TCP"
+    from_port   = 0
+    to_port     = 22
+    protocol    = "TCP"
     cidr_blocks = ["0.0.0.0/0"]
 
   }
@@ -36,9 +36,9 @@ resource "aws_security_group" "demoSG" {
 }
 
 resource "aws_instance" "demoEC2" {
-  ami           = "ami-06ca3ca175f37dd66"
-  instance_type = "t2.micro"
-  aws_key       = "terraform-windows-key"
+  ami                    = "ami-06ca3ca175f37dd66"
+  instance_type          = "t2.micro"
+  aws_key                = "terraform-windows-key"
   vpc_security_group_ids = [aws_security_group.demoSG.id]
   provisioner "remote-exec" {
     connection {
